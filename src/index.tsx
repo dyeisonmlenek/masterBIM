@@ -27,7 +27,7 @@ const rootElement = document.getElementById("app") as HTMLDivElement
 const appRoot = ReactDOM.createRoot(rootElement)
 appRoot.render(
   <>
-    <Router.BrowserRouter>
+    <Router.BrowserRouter basename={import.meta.env.BASE_URL}>
       <Sidebar />
       <Router.Routes>
         <Router.Route path="/" element={<ProjectsPage projectsManager={projectsManager} />}></Router.Route>
