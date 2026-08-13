@@ -28,7 +28,7 @@ export function ProjectTasksList({ todos, onSaveTodo }: Props) {
   return (
     <div className="dashboard-card" style={{ flexGrow: 1 }}>
       <div style={{ padding: "20px 30px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <h4>To-Do</h4>
+        <h4>Tarefas</h4>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "end", columnGap: "20px" }}>
           <SearchBox onChange={setSearch} />
           <span className="material-icons-round" style={{ cursor: "pointer" }} onClick={handleNew}>add</span>

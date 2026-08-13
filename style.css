@@ -255,7 +255,8 @@ input:focus, textarea:focus, select:focus {
   padding: 20px 40px;
   gap: 30px;
   grid-template-columns: 475px 1fr;
-  height: 100%;
+  flex: 1;
+  min-height: 0;
 }
 
 .btn-secondary {
@@ -327,4 +328,8 @@ input:focus, textarea:focus, select:focus {
 }
 .user-email span {
   font-size: 16px;
+}
+
+#project-details > .main-page-content.collapsed {
+  grid-template-columns: 1fr;
 }

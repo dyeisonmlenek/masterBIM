@@ -34,6 +34,7 @@ export function ProjectDetailsPage(props: Props) {
   const [editStatus, setEditStatus] = React.useState<ProjectStatus>(project.status)
   const [editRole, setEditRole] = React.useState<UserRole>(project.userRole)
   const [editCost, setEditCost] = React.useState(project.cost)
+  const [isSidebarOpen, setIsSidebarOpen] = React.useState(true)
 
   const handleEditSave = async () => {
     project.name = editName
@@ -141,10 +142,18 @@ export function ProjectDetailsPage(props: Props) {
           <h2 data-project-info="name">{project.name}</h2>
           <p style={{ color: "#969696" }}>{project.description}</p>
         </div>
-        <button onClick={() => props.projectsManager.deleteProject(project.id)} style={{backgroundColor: "red"}}>Delete Project</button>
+        <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+          <button className="btn-secondary" onClick={() => setIsSidebarOpen(!isSidebarOpen)} style={{ display: "flex", alignItems: "center", columnGap: 10, width: "fit-content", padding: "5px 15px", cursor: "pointer", height: "fit-content" }}>
+            <span className="material-icons-round">
+              {isSidebarOpen ? 'fullscreen' : 'fullscreen_exit'}
+            </span>
+            {isSidebarOpen ? 'Expandir Visualizador' : 'Mostrar Painel'}
+          </button>
+          <button onClick={() => props.projectsManager.deleteProject(project.id)} style={{backgroundColor: "red", height: "fit-content"}}>Excluir Projeto</button>
+        </div>
       </header>
-      <div className="main-page-content">
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 30 }}>
+      <div className={`main-page-content ${!isSidebarOpen ? "collapsed" : ""}`}>
+        <div style={{ display: isSidebarOpen ? "flex" : "none", flexDirection: "column", rowGap: 30 }}>
           <div className="dashboard-card" style={{ padding: "30px 0" }}>
             <div
               style={{
@@ -231,14 +240,14 @@ export function ProjectDetailsPage(props: Props) {
           </div>
           <ProjectTasksList todos={todos} onSaveTodo={handleSaveTodo} />
         </div>
-        <div style={{ display: "flex", flexDirection: "column", rowGap: 30, height: "100%", minHeight: "500px" }}>
+        <div style={{ display: "flex", flexDirection: "column", height: "100%", minHeight: "500px" }}>
           <bim-grid ref={viewerGrid} className="viewer-grid" style={{ flexGrow: 1 }}></bim-grid>
         </div>
       </div>
       {isEditing && (
         <dialog id="edit-project-modal" open style={{ zIndex: 100, position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
           <form onSubmit={(e) => { e.preventDefault(); handleEditSave(); }}>
-            <h2>Edit Project</h2>
+            <h2>Editar Projeto</h2>
             <div className="input-list">
               <div className="form-field-container">
                 <label><span className="material-icons-round">apartment</span>Name</label>
@@ -270,7 +279,7 @@ export function ProjectDetailsPage(props: Props) {
               </div>
               <div style={{ display: "flex", margin: "10px 0px 10px auto", columnGap: "10px" }}>
                 <button type="button" onClick={() => setIsEditing(false)} style={{ backgroundColor: "transparent" }}>Cancel</button>
-                <button type="submit" style={{ backgroundColor: "rgb(18, 145, 18)" }}>Save</button>
+                <button type="submit" style={{ backgroundColor: "rgb(18, 145, 18)" }}>Salvar</button>
               </div>
             </div>
           </form>

@@ -31,15 +31,15 @@ export function ProjectCard(props: Props) {
           <p>{ props.project.status }</p>
         </div>
         <div className="card-property">
-          <p style={{ color: "#969696" }}>Role</p>
+          <p style={{ color: "#969696" }}>Cargo</p>
           <p>{ props.project.userRole }</p>
         </div>
         <div className="card-property">
-          <p style={{ color: "#969696" }}>Cost</p>
+          <p style={{ color: "#969696" }}>Custo</p>
           <p>$ { props.project.cost }</p>
         </div>
         <div className="card-property">
-          <p style={{ color: "#969696" }}>Estimated Progress</p>
+          <p style={{ color: "#969696" }}>Progresso Estimado</p>
           <p>{ props.project.progress } %</p>
         </div>
       </div>

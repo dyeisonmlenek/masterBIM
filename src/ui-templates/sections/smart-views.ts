@@ -44,9 +44,9 @@ export const smartViewsPanelTemplate: BUI.StatefullComponent<
   }
 
   return BUI.html`
-  <bim-panel-section fixed label="Smart Views">
+  <bim-panel-section fixed label="Visualizações Inteligentes">
     <div style="display: flex; gap: 0.5rem;">
-      <bim-text-input @input=${onSearch} placeholder="Search..." debounce="200"></bim-text-input>
+      <bim-text-input @input=${onSearch} placeholder="Buscar..." debounce="200"></bim-text-input>
       <bim-button @click=${onReset} icon=${appIcons.REFRESH} style="flex: 0"></bim-button>
       <bim-button style="flex: 0" icon=${appIcons.ADD}>
         <bim-context-menu>

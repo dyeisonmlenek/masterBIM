@@ -58,35 +58,35 @@ export function UsersPage() {
     <div className="page" id="users-page">
       <dialog id="new-user-modal">
         <form id="new-user-form" onSubmit={handleAddUser}>
-          <h2>New User</h2>
+          <h2>Novo Usuário</h2>
           <div className="input-list">
             <div className="form-field-container">
-              <label><span className="material-icons-round">person</span>Name</label>
-              <input type="text" name="name" placeholder="Jane Doe" required />
+              <label><span className="material-icons-round">person</span>Nome</label>
+              <input type="text" name="name" placeholder="João da Silva" required />
             </div>
             <div className="form-field-container">
-              <label><span className="material-icons-round">email</span>Email</label>
+              <label><span className="material-icons-round">E-mail</span>E-mail</label>
               <input type="email" name="email" placeholder="jane@example.com" required />
             </div>
             <div className="form-field-container">
-              <label><span className="material-icons-round">work</span>Role</label>
+              <label><span className="material-icons-round">work</span>Cargo</label>
               <select name="role">
-                <option value="architect">Architect</option>
-                <option value="engineer">Engineer</option>
-                <option value="developer">Developer</option>
+                <option value="architect">Arquiteto</option>
+                <option value="engineer">Engenheiro</option>
+                <option value="developer">Desenvolvedor</option>
               </select>
             </div>
             <div style={{ display: "flex", margin: "10px 0px 10px auto", columnGap: "10px" }}>
-              <button type="button" onClick={onCloseModal} style={{ backgroundColor: "transparent" }}>Cancel</button>
-              <button type="submit" style={{ backgroundColor: "rgb(18, 145, 18)" }}>Add User</button>
+              <button type="button" onClick={onCloseModal} style={{ backgroundColor: "transparent" }}>Cancelar</button>
+              <button type="submit" style={{ backgroundColor: "rgb(18, 145, 18)" }}>Adicionar Usuário</button>
             </div>
           </div>
         </form>
       </dialog>
       <header>
-        <h2>Users</h2>
+        <h2>Usuários</h2>
         <div>
-          <button onClick={onOpenModal}><span className="material-icons-round">add</span>New User</button>
+          <button onClick={onOpenModal}><span className="material-icons-round">add</span>Novo Usuário</button>
         </div>
       </header>
       <div id="users-list" style={{ display: "flex", flexWrap: "wrap", gap: "20px", padding: "30px" }}>
@@ -98,7 +98,7 @@ export function UsersPage() {
             <div className="user-details">
               <h3>{user.name}</h3>
               <p className="user-role">{user.role}</p>
-              <p className="user-email"><span className="material-icons-round">email</span> {user.email}</p>
+              <p className="user-email"><span className="material-icons-round">E-mail</span> {user.email}</p>
             </div>
           </div>
         ))}

@@ -53,13 +53,13 @@ export const queriesPanelTemplate: BUI.StatefullComponent<
   };
 
   return BUI.html`
-  <bim-panel-section fixed label="Queries List">
+  <bim-panel-section fixed label="Pesquisas">
     <div style="display: flex; gap: 0.5rem; justify-content: space-between;">
-      <bim-button @click=${onExport} label="Export" icon="mdi:download"></bim-button>
-      <bim-button @click=${onImport} label="Import" icon="mdi:upload"></bim-button>
+      <bim-button @click=${onExport} label="Exportar" icon="mdi:download"></bim-button>
+      <bim-button @click=${onImport} label="Importar" icon="mdi:upload"></bim-button>
     </div>
     <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
-      <bim-text-input @input=${onSearch} placeholder="Search..." debounce="200"></bim-text-input>
+      <bim-text-input @input=${onSearch} placeholder="Buscar..." debounce="200"></bim-text-input>
     </div>
     ${modelsList}
   </bim-panel-section>`;

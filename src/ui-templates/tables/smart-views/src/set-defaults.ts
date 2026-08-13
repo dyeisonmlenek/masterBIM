@@ -31,9 +31,7 @@ export const setDefaults = (
 
       const onUpdate = async ({target: button}: {target: BUI.Button}) => {
         button.loading = true
-        const cloned = smartViews.clone()
-        cloned.name = view.name
-        smartViews.list.set(guid, cloned)
+        smartViews.update(guid)
         button.loading = false
       }
 

@@ -75,7 +75,7 @@ export function ProjectsPage(props: Props) {
     <div className="page" id="projects-page" style={{ display: "flex" }}>
       <ProjectsForm projectsManager={props.projectsManager} />
       <header>
-        <h2>Projects</h2>
+        <h2>Projetos</h2>
         <SearchBox onChange={(value) => onProjectSearch(value)}/>
         <div style={{ display: "flex", alignItems: "center", columnGap: 15 }}>
           <span
@@ -93,12 +93,12 @@ export function ProjectsPage(props: Props) {
             file_download
           </span>
           <button onClick={onNewProjectClick} id="new-project-btn">
-            <span className="material-icons-round">add</span>New Project
+            <span className="material-icons-round">add</span>Novo Projeto
           </button>
         </div>
       </header>
       {
-        projects.length > 0 ? <div id="projects-list">{ projectCards }</div> : <p>There is no projects to display!</p>
+        projects.length > 0 ? <div id="projects-list">{ projectCards }</div> : <p>Não há projetos para exibir!</p>
       }
     </div>
   )

@@ -1,5 +1,5 @@
 import * as BUI from "@thatopen/ui";
-import * as OBC from "@thatopen/components"
+import * as OBC from "@thatopen/components";
 import { appIcons } from "../../globals";
 
 export interface LoadModelBtnState {
@@ -30,10 +30,12 @@ export const loadModelBtnTemplate: BUI.StatefullComponent<LoadModelBtnState> = (
           file.name.replace(".ifc", "")
         );
         
-        const worlds = components.get(OBC.Worlds)
-        const world = worlds.list.values().next().value
-        if (world && world.camera) {
-          world.camera.controls.fitToSphere(model, true)
+        const worlds = components.get(OBC.Worlds);
+        const world = worlds.list.values().next().value;
+        if (world && world.camera && world.camera.controls) {
+          if (model.box) {
+            world.camera.controls.fitToBox(model.box, true);
+          }
         }
       } catch (err) {
         console.error("Erro ao carregar o modelo IFC:", err)
@@ -56,9 +58,17 @@ export const loadModelBtnTemplate: BUI.StatefullComponent<LoadModelBtnState> = (
       const buffer = await file.arrayBuffer();
 
       const fragments = components.get(OBC.FragmentsManager)
-      fragments.core.load(buffer, {
+      const model = await fragments.core.load(buffer, {
         modelId: file.name.replace(".frag", "")
-      })
+      });
+
+      const worlds = components.get(OBC.Worlds);
+      const world = worlds.list.values().next().value;
+      if (world && world.camera && world.camera.controls) {
+        if (model.box) {
+          world.camera.controls.fitToBox(model.box, true);
+        }
+      }
     });
 
     input.click();
@@ -66,8 +76,8 @@ export const loadModelBtnTemplate: BUI.StatefullComponent<LoadModelBtnState> = (
 
   return BUI.html`<bim-button icon=${appIcons.ADD}>
     <bim-context-menu>
-      <bim-button class="transparent" @click=${onLoadFrag} label="Load FRAG"></bim-button>
-      <bim-button class="transparent" @click=${onLoadIfc} label="Load IFC"></bim-button>
+      <bim-button class="transparent" @click=${onLoadFrag} label="Carregar FRAG"></bim-button>
+      <bim-button class="transparent" @click=${onLoadIfc} label="Carregar IFC"></bim-button>
     </bim-context-menu>
   </bim-button>`
 }

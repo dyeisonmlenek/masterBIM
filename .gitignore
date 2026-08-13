@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Testes locais
+test.js
+test2.js
+test_after_upload.png
+
+# Materiais do curso
+referencias/

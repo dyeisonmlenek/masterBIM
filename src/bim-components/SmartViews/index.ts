@@ -83,6 +83,15 @@ export class SmartViews extends OBC.Component {
     return { id, smartView }
   }
 
+  update(id: string) {
+    const smartView = this.clone();
+    const existing = this.list.get(id);
+    if (!existing) throw new Error("SmartView not found");
+    smartView.name = existing.name;
+    this.list.set(id, smartView);
+    return smartView;
+  }
+
   async reset() {
     const highlighter = this.components.get(OBF.Highlighter);
     const hider = this.components.get(OBC.Hider);

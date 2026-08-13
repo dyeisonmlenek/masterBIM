@@ -89,4 +89,13 @@ export class DataEnhancer extends OBC.Component {
     
     return result;
   }
+
+  async findItemsBySharedData(source: string, sharedData: any) {
+    return this.getItemsBySourceData(source, (data) => {
+      if (Array.isArray(data)) {
+        return data.some(d => JSON.stringify(d) === JSON.stringify(sharedData))
+      }
+      return JSON.stringify(data) === JSON.stringify(sharedData)
+    })
+  }
 }

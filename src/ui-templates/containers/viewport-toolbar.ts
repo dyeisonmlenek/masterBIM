@@ -172,15 +172,15 @@ export const viewerToolbarTemplate: BUI.StatefullComponent<
 
   return BUI.html`
     <bim-toolbar>
-      <bim-toolbar-section label="Visibility" icon=${appIcons.SHOW}>
-        <bim-button icon=${appIcons.SHOW} label="Show All" @click=${onShowAll}></bim-button> 
-        <bim-button icon=${appIcons.TRANSPARENT} label="Toggle Ghost" @click=${onToggleGhost}></bim-button>
+      <bim-toolbar-section label="Visibilidade" icon=${appIcons.SHOW}>
+        <bim-button icon=${appIcons.SHOW} label="Mostrar Tudo" @click=${onShowAll}></bim-button> 
+        <bim-button icon=${appIcons.TRANSPARENT} label="Alternar Fantasma" @click=${onToggleGhost}></bim-button>
       </bim-toolbar-section>
-      <bim-toolbar-section label="Selection" icon=${appIcons.SELECT}>
-        <bim-button icon=${appIcons.FOCUS} label="Focus" @click=${onFocus}></bim-button>
-        <bim-button icon=${appIcons.HIDE} label="Hide" @click=${onHide}></bim-button> 
-        <bim-button icon=${appIcons.ISOLATE} label="Isolate" @click=${onIsolate}></bim-button>
-        <bim-button icon=${appIcons.COLORIZE} label="Colorize">
+      <bim-toolbar-section label="Seleção" icon=${appIcons.SELECT}>
+        <bim-button icon=${appIcons.FOCUS} label="Focar" @click=${onFocus}></bim-button>
+        <bim-button icon=${appIcons.HIDE} label="Ocultar" @click=${onHide}></bim-button> 
+        <bim-button icon=${appIcons.ISOLATE} label="Isolar" @click=${onIsolate}></bim-button>
+        <bim-button icon=${appIcons.COLORIZE} label="Colorir">
           <bim-context-menu>
             <div style="display: flex; flex-direction: column; gap: 0.5rem;">
               <bim-color-input ${BUI.ref(onInputCreated)}></bim-color-input>
@@ -190,8 +190,8 @@ export const viewerToolbarTemplate: BUI.StatefullComponent<
                 `)}
               </div>
               <div style="display: flex; gap: 0.5rem">
-                <bim-button @click=${onApplyColor} icon=${appIcons.APPLY} label="Apply"></bim-button>
-                <bim-button icon=${appIcons.CLEAR} label="Reset" @click=${onReset}></bim-buttom>
+                <bim-button @click=${onApplyColor} icon=${appIcons.APPLY} label="Aplicar"></bim-button>
+                <bim-button icon=${appIcons.CLEAR} label="Redefinir" @click=${onReset}></bim-buttom>
               </div>
             </div>
           </bim-context-menu>

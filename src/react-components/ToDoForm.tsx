@@ -52,7 +52,7 @@ export function ToDoForm({ todoToEdit, onClose, onSave }: Props) {
             <input type="text" value={name} onChange={e => setName(e.target.value)} required />
           </div>
           <div className="form-field-container">
-            <label><span className="material-icons-round">calendar_month</span>Date</label>
+            <label><span className="material-icons-round">calendar_month</span>Data</label>
             <input type="date" value={date} onChange={e => setDate(e.target.value)} required />
           </div>
           <div className="form-field-container">
@@ -64,7 +64,7 @@ export function ToDoForm({ todoToEdit, onClose, onSave }: Props) {
             </select>
           </div>
           <div className="form-field-container">
-            <label><span className="material-icons-round">priority_high</span>Priority</label>
+            <label><span className="material-icons-round">priority_high</span>Prioridade</label>
             <select value={priority} onChange={e => setPriority(e.target.value as any)}>
               <option value="low">Low</option>
               <option value="medium">Medium</option>
@@ -72,8 +72,8 @@ export function ToDoForm({ todoToEdit, onClose, onSave }: Props) {
             </select>
           </div>
           <div style={{ display: "flex", margin: "10px 0px 10px auto", columnGap: "10px" }}>
-            <button type="button" onClick={onClose} style={{ backgroundColor: "transparent" }}>Cancel</button>
-            <button type="submit" style={{ backgroundColor: "rgb(18, 145, 18)" }}>Save</button>
+            <button type="button" onClick={onClose} style={{ backgroundColor: "transparent" }}>Cancelar</button>
+            <button type="submit" style={{ backgroundColor: "rgb(18, 145, 18)" }}>Salvar</button>
           </div>
         </div>
       </form>

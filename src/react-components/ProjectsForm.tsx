@@ -48,7 +48,7 @@ export function ProjectsForm(props: Props) {
   return (
     <dialog id="new-project-modal">
       <form onSubmit={onFormSubmit} id="new-project-form">
-        <h2>New Project</h2>
+        <h2>Novo Projeto</h2>
         <div className="input-list">
           <div className="form-field-container">
             <label>

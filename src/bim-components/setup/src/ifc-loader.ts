@@ -2,5 +2,9 @@ import * as OBC from "@thatopen/components"
 
 export const setupIfcLoader = async (components: OBC.Components) => {
   const ifcLoader = components.get(OBC.IfcLoader);
-  await ifcLoader.setup();
+  ifcLoader.settings.wasm = {
+    path: "/",
+    absolute: true
+  };
+  await ifcLoader.setup({ autoSetWasm: false });
 }
